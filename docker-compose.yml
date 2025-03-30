@@ -1,8 +1,21 @@
 version: "3"
+
 services:
   meu-bot-node:
+    image: meu-bot-node-meu-bot-node
     build: .
-    ports:
-      - "3000:3000"
     container_name: meu-bot-node
-    restart: always
+    ports:
+      - "3000"  # Ainda acessível localmente se necessário
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.meubot.rule=Host(`meubot.blazezap.com.br`)"
+      - "traefik.http.routers.meubot.entrypoints=websecure"
+      - "traefik.http.routers.meubot.tls=true"
+      - "traefik.http.services.meubot.loadbalancer.server.port=3000"
+
+networks:
+  web:
+    external: true
