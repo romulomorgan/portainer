@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.post('/', (req, res) => {
   const msg = req.body.message || "Mensagem não recebida.";
-  res.send({ resposta: "Você disse: " + msg });
+  res.send({ resposta: "Eu escutei você dizer: " + msg });
 });
 
 app.listen(PORT, () => {
