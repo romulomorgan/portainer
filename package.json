@@ -1,0 +1,12 @@
+{
+  "name": "meu-bot-node",
+  "version": "1.0.0",
+  "description": "Bot simples que responde mensagens",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
