@@ -7,6 +7,8 @@ app.use(express.json());
 app.post('/', (req, res) => {
   const msg = req.body.message || "Mensagem não recebida.";
   res.send({ resposta: "Um OLá! Eu estou adorando ter você aqui comigo :)  " + msg });
+  console.log('🟢 Requisição recebida no POST /');
+  console.log('📦 Conteúdo recebido:', req.body);
 });
 
 app.listen(PORT, () => {
